@@ -3,7 +3,7 @@
  * main - Prints all possible combinations of three different ascending order.
  * Return: Always 0.
  */
-int mai(void)
+int main(void)
 {
 int dig1, dig2, dig3;
 for (dig1 = 0; dig1 < 8; dig1++)
