@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * main - test that the function gives correct output for 0.
  * Return: Always 0.
