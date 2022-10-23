@@ -2,8 +2,7 @@
 
 /**
  * print_triangle - prints a triangle.
- *@size: input
- *@#: character to print trianlge.
+ *@size: input.
  *Return: always 0.
  */
 
