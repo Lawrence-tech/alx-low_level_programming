@@ -2,22 +2,22 @@
 
 /**
  * print_triangle - prints a triangle.
- *@size: input.
+ *@size: size of triangle.
  *Return: nothing 
  */
 
 void print_triangle(int size)
 {
-	int r, c, aux;
+	int row, col, aux;
 
 	if (size > 0)
 	{
-		for (r = 0; r < size; r++)
+		for (row = 0; row < size; row++)
 		{
-			for (c = 0; c < size; c++)
+			for (col = 0; col < size; col++)
 			{
 				aux = (size - row) - 1;
-				if (c < aux)
+				if (col < aux)
 					_putchar(' ');
 				else
 					_putchar('#');
