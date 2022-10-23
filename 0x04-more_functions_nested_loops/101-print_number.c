@@ -2,8 +2,8 @@
 
 /**
  * print_number - function that prints integers.
- *@n: input
- *Return: nothing.
+ *@n:input value to check.
+ *Return:0.
  */
 
 void print_number(int n)
