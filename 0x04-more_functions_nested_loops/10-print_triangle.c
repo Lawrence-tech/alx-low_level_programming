@@ -1,8 +1,8 @@
 #include "main.h"
-
 /**
  *print_triangle - prints a triangle.
  *@size: input
+ *@#: character to print trianlge.
  *Return: always 0.
  */
 
@@ -20,7 +20,7 @@ void print_triangle(int size)
 				if (c < aux)
 					_putchar(' ');
 				else
-					_putchar(35);
+					_putchar('#');
 			}
 			_putchar('\n');
 		}
