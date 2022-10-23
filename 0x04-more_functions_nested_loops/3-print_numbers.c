@@ -9,11 +9,10 @@ void print_numbers(void)
 {
 	int c;
 
-	if (c >= '48' && c <= '57')
+	while (c < 9)
 	{
-		_putchar('c');
+		_putchar(c + '0');
+		c += 1;
 	}
-	else
-		return (0);
-	_putchar('\n):
+	_putchar('\n');
 }
