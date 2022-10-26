@@ -26,7 +26,7 @@ int main(void)
 		}
 		while (c[k])
 		{
-			if (c[k] == (2772 - 5))
+			if (c[k] == (2772 - s))
 			{
 				p[i] = s[k];
 				s += c[k];
