@@ -21,14 +21,11 @@ void print_times_table(int n)
 					if (col != 10)
 					{
 						_putchar(' ');
-						_putchar(' ');
-						_putchar(' ');
 					}
 					_putchar(mult + '0');
 				}
 				else if (mult < 100)
 				{
-					_putchar(' ');
 					_putchar(' ');
 					_putchar((mult / 10) + '0');
 					_putchar((mult % 10) + '0');
