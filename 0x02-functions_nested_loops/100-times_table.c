@@ -14,7 +14,7 @@ void print_times_table(int n)
 		{
 			for (col = 0; col <= n; col++)
 			{
-				mult = row * col;
+				mult = col * row;
 				if (col == 0)
 				{
 					_putchar(mult + 48);
@@ -41,7 +41,7 @@ void print_times_table(int n)
 					_putchar(' ');
 					_putchar((mult / 100) + 48);
 					_putchar(((mult / 10) % 10) + 48);
-					_putchar((mult % 10) +48);
+					_putchar((mult % 10) + 48);
 				}
 			_putchar('\n');
 		}
