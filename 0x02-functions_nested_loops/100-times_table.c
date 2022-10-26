@@ -21,9 +21,8 @@ void print_times_table(int n)
 					if (col != 10)
 					{
 						_putchar(' ');
-						_putchar(' ');
 					}
-					_putchar(mult);
+					_putchar(mult + 48);
 				}
 				else if (mult < 100)
 				{
