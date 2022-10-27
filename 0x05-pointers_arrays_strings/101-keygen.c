@@ -28,7 +28,7 @@ int main(void)
 		{
 			if (c[k] == (2772 - s))
 			{
-				p[i] = s[*k];
+				p[i] = c[k];
 				s += c[k];
 				i++;
 				break;
