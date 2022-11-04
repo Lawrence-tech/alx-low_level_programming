@@ -17,6 +17,12 @@ int _sqrt_recursion(int n)
 	return (getNumSqr(n, 1));
 }
 
+/**
+  *getNumSqr - gets square root of num
+  *@num: input
+  *@i: counter
+  *Return: int
+  */
 int getNumSqr(int num, int i)
 {
 	if (num == (i * i))
