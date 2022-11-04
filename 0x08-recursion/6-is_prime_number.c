@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
   *is_prime_number - return 1for integer, 0 otherwise
