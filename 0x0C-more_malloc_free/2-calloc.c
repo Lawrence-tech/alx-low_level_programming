@@ -3,8 +3,8 @@
 
 /**
   *_calloc - allocates memory for an array, using malloc.
-  *@nmemb: number of memory block
-  *@size: block size
+  *@nmemb: input
+  *@size: input byte size
   *Return: pointer to allocated memory
   */
 
