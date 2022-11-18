@@ -26,5 +26,6 @@ int main (int argc, char **argv)
 	addr =(char *)main;
 	for (i = 0; i < bytes - 1; i++)
 		printf("%02hhx ", addr[i]);
+	printf("%02hhx\n", addr[i]);
 	return (0);
 }
