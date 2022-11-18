@@ -1,8 +1,9 @@
-#include "function_pointer.h"
+#include "function_pointers.h"
 #include <stdlib.h>
 
 /**
   *int_index - searches for an integer.
+  *@array: input array
   *@size: number of elements in array array
   *@cmp: pointer to the function to be used to compare values
   *Return:index of the first element for which the cmp function does not
@@ -26,5 +27,4 @@ int int_index(int *array, int size, int (*cmp)(int))
 	}
 	/* If element is not found */
 	return (-1);
-}
 }
