@@ -6,10 +6,9 @@
   *print_char - prints char
   *@list: argument list
   *@sep: separator
-  *Return: none
   */
 
-void print_char(va_list, char *sep)
+void print_char(va_list list, char *sep)
 {
 	printf("%s%c", sep, va_arg(list, int));
 }
@@ -17,13 +16,12 @@ void print_char(va_list, char *sep)
 /**
   *print_int - print int
   *@list: argument list
-  *@sep: separator
-  *Return: none
+  *@s: separator
   */
 
 void print_int(va_list list, char *s)
 {
-	printf("%s%d", s, va_arg(list, int));
+	printf("%d", va_arg(list, int));
 }
 
 /**
@@ -86,7 +84,8 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == *(ops[j]).op)
 			{
-				ops[j].f(list, separator);separator = ", ";
+				ops[j].f(list, separator);
+				separator = ", ";
 			}
 			j++;
 		}
