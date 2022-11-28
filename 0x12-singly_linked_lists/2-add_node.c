@@ -24,7 +24,7 @@ list_t *add_node(list_t **head, const char *str)
 		if (newstr == NULL)
 			return (NULL);
 
-		ptr = nestr;
+		ptr = newstr;
 		while (*str)
 			*ptr++ = *str++;
 	}
