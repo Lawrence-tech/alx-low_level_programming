@@ -9,7 +9,7 @@
 
 listint_t *find_loop_listint(listint_t *head)
 {
-	listint_t *ptr, *end;
+	listint_t *temp, *end;
 
 	if (head == NULL)
 		return (NULL);
@@ -17,8 +17,8 @@ listint_t *find_loop_listint(listint_t *head)
 	{
 		if (end == end->next)
 			return (end);
-		for (ptr = head; ptr != end; ptr = ptr->next)
-			if (ptr == end->next)
+		for (temp = head; temp != end; temp = temp->next)
+			if (temp == end->next)
 				return (end->next);
 	}
 	return (NULL);
@@ -41,7 +41,7 @@ size_t print_listint_safe(const listint_t *head)
 	listint_t *lpnode;
 	int loop;
 
-	lpnode = find_listint_loop((listint_t *) head);
+	lpnode = find_loop_listint((listint_t *) head);
 
 	for (len = 0, loop = 1; (head != lpnode || loop) && head != NULL; len++)
 	{
