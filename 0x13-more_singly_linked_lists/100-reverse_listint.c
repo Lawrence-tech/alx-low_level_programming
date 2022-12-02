@@ -19,10 +19,10 @@ listint_t *reverse_recur(listint_t *first, listint_t *second)
 	}
 	if (prev != NULL)
 		prev->next = first;
-	second = first->first;
+	second = first->next;
 	first->next = ptr->next;
 	if (first != ptr && second != first)
-		secod = reverse_recur(second, first);
+		second = reverse_recur(second, first);
 	ptr->next = second;
 	return (ptr);
 }
