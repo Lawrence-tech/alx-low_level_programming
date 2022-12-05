@@ -5,21 +5,19 @@
 /**
   *print_char - prints char
   *@list: argument list
-  *@sep: separator
   */
 
-void print_char(va_list list, char *sep)
+void print_char(va_list list)
 {
-	printf("%s%c", sep, va_arg(list, int));
+	printf("%c", (char) va_arg(list, int));
 }
 
 /**
   *print_int - print int
   *@list: argument list
-  *@s: separator
   */
 
-void print_int(va_list list, char *s)
+void print_int(va_list list)
 {
 	printf("%d", va_arg(list, int));
 }
@@ -27,30 +25,30 @@ void print_int(va_list list, char *s)
 /**
   *print_string - prints string
   *@list: argument list
-  *@sep:separator
   *Return: none
   */
 
-void print_string(va_list list, char *sep)
+void print_string(va_list list)
 {
-	char *s;
+	char *str;
 
-	s = va_arg(list, char *);
-	if (s == NULL0
-			s = "(nil)";
-			printf("%s%s", sep, s);
-}
+	str = va_arg(list, char *);
+
+	while (str != NULL)
+	{
+		printf("%s", str);
+		return;
+	}
 
 /**
   *print_float - prints float
-  *@sep:separator
   *@list: argument list
   *Return: none
   */
 
-void print_float(va_list list, char *sep)
+void print_float(va_list list)
 {
-printf("%s%f", sep, va_arg(list, double));
+	printf("%f", (float) va_arg(list, double));
 }
 
 
@@ -59,38 +57,33 @@ printf("%s%f", sep, va_arg(list, double));
   *@format: string containing type information for args.
   *Return: arguments.
   */
-
 void print_all(const char * const format, ...)
 {
 	va_list list;
-	int i, j;
-	char *separator;
+	const char *ptr;
 
-	type_t ops[] = {
-		{"c", print_char},
-		{"i", print_int},
-		{"s", print_string},
-		{"f", print_float},
-		{NULL, NULL}
-	};
+	funck key[4] = { {'c', print_char}, {'i', print_int},
+		{'s', print_string}, {'f', print_float} };
+	int keyind = 0, notfirst = 0;
 
+	ptr = format;
 	va_start(list, format);
-	i = 0;
-	separator = "";
-	while (format != NULL && format[i] != '\0')
+	while (format != NULL && *ptr)
 	{
-		j = 0;
-		while (j < 4)
+		if (key[keyind].spec == *ptr)
 		{
-			if (format[i] == *(ops[j]).op)
-			{
-				ops[j].f(list, separator);
-				separator = ", ";
-			}
-			j++;
+			if (notfirst)
+				printf(" ,");
+			notfirst = 1;
+			key[keyind].f(list);
+			ptr++;
+			keyind = -1;
 		}
-		i++;
+		keyind++;
+		ptr += keyind / 4;
+		keyind %= 4;
 	}
-	printf("\n"0;
-			va_end(list);
-			}
+	printf("\n");
+
+	va_end(list);
+}
