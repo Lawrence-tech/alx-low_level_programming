@@ -1,5 +1,4 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
 #include <stdio.h>
 
 /**
@@ -62,8 +61,8 @@ void print_all(const char * const format, ...)
 	va_list list;
 	const char *ptr;
 
-	funck key[4] = { {'c', print_char}, {'i', print_int},
-		{'s', print_string}, {'f', print_float} };
+	funck key[4] = { {print_char, 'c'}, {print_int, 'i'},
+		{print_string, 's'}, {print_float, 'f'} };
 	int keyind = 0, notfirst = 0;
 
 	ptr = format;
@@ -83,7 +82,7 @@ void print_all(const char * const format, ...)
 		ptr += keyind / 4;
 		keyind %= 4;
 	}
-	printf("\n");
-
 	va_end(list);
+	printf("\n");
+}
 }
