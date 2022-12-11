@@ -1,4 +1,4 @@
-#define _GNU_SOURCE
+/*#define _GNU_SOURCE*/
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -102,7 +102,8 @@ int main(int ac, char *av[])
 		lenw = write(file_to, buf, lenr);
 		if (lenw == -1 || lenw != lenr)
 			return (write_err(file_from, file_to, av[2]));
-	} while (lenr == 1024)
+	}
+	while (lenr == 1024);
 	err = close_errcheck(file_from);
 	err += close_errcheck(file_to);
 	if (err != 0)
