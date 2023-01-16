@@ -47,7 +47,7 @@ void print_string(va_list list)
 
 void print_float(va_list list)
 {
-	printf("%f", (float) va_arg(list, double));
+	printf("%f", va_arg(list, double));
 }
 
 
