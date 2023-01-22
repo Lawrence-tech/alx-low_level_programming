@@ -35,7 +35,7 @@ int main(int ac, char *av[])
 	srand(temp ^ 0xe);
 	password[3] = str[rand() & 0x3f];
 	for (ptr = uname, temp = 0; *ptr; ptr++)
-		trmp += *ptr * *ptr;
+		temp += *ptr * *ptr;
 	password[4] = str[(temp ^ 0xef) & 0x3f];
 		for (temp = *uname, ct = 0; ct < temp; ct++)
 			randh = rand();
