@@ -29,15 +29,13 @@ void print_int(va_list list)
 
 void print_string(va_list list)
 {
-	char *str;
+	char *str = va_arg(list, char *);
 
-	str = va_arg(list, char *);
-
-	while (str != NULL)
-	{
+	if (str == NULL)
+		printf("(nil)");
+	else
 		printf("%s", str);
-		return;
-	}
+}
 
 /**
   *print_float - prints float
@@ -60,29 +58,31 @@ void print_all(const char * const format, ...)
 {
 	va_list list;
 	const char *ptr;
-
-	funck key[4] = { {print_char, 'c'}, {print_int, 'i'},
-		{print_string, 's'}, {print_float, 'f'} };
 	int keyind = 0, notfirst = 0;
+	funck key[4] = {
+		{print_char, 'c'},
+		{print_int, 'i'},
+		{print_string, 's'},
+		{print_float, 'f'},
+	};
 
-	ptr = format;
 	va_start(list, format);
-	while (format != NULL && *ptr)
+	ptr = format;
+	while (format != NULL && *ptr != '\0')
 	{
+		if (keyind > 3)
+			break;
 		if (key[keyind].spec == *ptr)
 		{
 			if (notfirst)
-				printf(" ,");
+				printf(", ");
 			notfirst = 1;
 			key[keyind].f(list);
-			ptr++;
 			keyind = -1;
 		}
+		ptr++;
 		keyind++;
-		ptr += keyind / 4;
-		keyind %= 4;
 	}
 	va_end(list);
 	printf("\n");
-}
 }
